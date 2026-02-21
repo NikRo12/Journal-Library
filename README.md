@@ -8,10 +8,6 @@ Follow the steps below to build the project.
 ## Installation Steps
 
 1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd <project-directory>
-   ```
 
 2. **Run Makefile targets**  
    In the project root directory, execute `make` with the desired target:
@@ -23,4 +19,5 @@ Follow the steps below to build the project.
    | `app`         | Build the application                |
    | `all`         | Perform a full build                 |
    | `clean`       | Remove temporary files               |
-```
+
+3. **In the app directory, execute ./app**
