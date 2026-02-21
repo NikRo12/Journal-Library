@@ -2,14 +2,17 @@
 #define JOURNAL_H
 
 #include <string>
+#include <mutex>
 #include "journal_api.h"
 
 class Journal {
 private: 
     std::string filename;
     LogLevel default_level;
+    mutable std::mutex mtx;
 public: 
     Journal(const std::string& filename, LogLevel default_level);
+    ~Journal();
 
     std::string getFilename() const;
     LogLevel getDefaultLevel() const;

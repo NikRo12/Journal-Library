@@ -18,7 +18,7 @@ class TcpServer
 {
 public:
     TcpServer(int port) : port_(port), server_fd_(-1) {
-        init_logger("log.txt", LogLevel::ERROR);
+        init_logger("log.txt", LogLevel::DEBUG);
     }
 
     ~TcpServer() {
@@ -35,7 +35,6 @@ public:
         int opt = 1;
         if (setsockopt(server_fd_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
             perror("Setsockopt failed");
-            close(server_fd_);
             return;
         }
 

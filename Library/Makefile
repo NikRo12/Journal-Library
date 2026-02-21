@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -fPIC -Wall -Wextra -std=c++11
-LDFLAGS = -shared
+LDFLAGS = -shared -pthread
 LIB_NAME = liblogger.so
 
 SRCDIR = src
