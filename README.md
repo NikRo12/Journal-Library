@@ -21,3 +21,4 @@ Follow the steps below to build the project.
    | `clean`       | Remove temporary files               |
 
 3. **In the app directory, execute ./app**
+```
