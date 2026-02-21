@@ -22,7 +22,9 @@ LogLevel Journal::getDefaultLevel() const {
 }
 
 void Journal::write(const std::string& message, LogLevel level) {
-    if (level >= default_level) { 
+    
+
+    if (level >= default_level || level == LogLevel::NONE) { 
         std::ofstream out(filename, std::ios::app);
         if (out.is_open()) {
             auto now = std::chrono::system_clock::now();
@@ -30,6 +32,10 @@ void Journal::write(const std::string& message, LogLevel level) {
             
             std::stringstream ss;
             ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
+
+            if (level == LogLevel::NONE) {
+                level = default_level;
+            }
 
             std::string s_level;
             switch(level) {

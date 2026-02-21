@@ -2,6 +2,7 @@
 #define JOURNAL_API_H
 
 enum class LogLevel {
+    NONE = -1,
     DEBUG = 0,
     INFO = 1,
     ERROR = 2
