@@ -1,2 +1,0 @@
-[2026-02-21 15:38:13] [ERROR] Some error message with entered 'ERROR' level
-[2026-02-21 15:38:33] [ERROR] Some error message with empty level
