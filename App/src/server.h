@@ -12,16 +12,13 @@
 
 class TcpServer {
 public:
-    TcpServer(int port);
+    TcpServer(int port, const std::string& filename, LogLevel def);
     ~TcpServer();
     void start();
 
 private:
     int port_;
     int server_fd_;
-
-    LogLevel choose_log_level(const std::string& str);
-
     void handleClient(int client_fd);
 };
 

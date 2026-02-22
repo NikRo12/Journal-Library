@@ -1,7 +1,7 @@
 #include "server.h"
 
-TcpServer::TcpServer(int port) : port_(port), server_fd_(-1) {
-    init_logger("log.txt", LogLevel::DEBUG);
+TcpServer::TcpServer(int port, const std::string& filename, LogLevel def) : port_(port), server_fd_(-1) {
+    init_logger(filename.c_str(), def);
 }
 
 TcpServer::~TcpServer() {
@@ -50,14 +50,6 @@ void TcpServer::start() {
         std::cout << "New client" << std::endl;
         std::thread(&TcpServer::handleClient, this, client_fd).detach();
     }
-}
-
-LogLevel TcpServer::choose_log_level(const std::string& str) {
-    if (str == "DEBUG") return LogLevel::DEBUG;
-    if (str == "INFO")  return LogLevel::INFO;
-    if (str == "ERROR") return LogLevel::ERROR;
-    
-    return LogLevel::NONE;
 }
 
 void TcpServer::handleClient(int client_fd) {
